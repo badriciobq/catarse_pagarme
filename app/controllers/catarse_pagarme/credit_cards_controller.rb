@@ -2,6 +2,8 @@ module CatarsePagarme
   class CreditCardsController < CatarsePagarme::ApplicationController
     MAX_SOFT_DESCRIPTOR_LENGTH = 13
 
+    include ApplicationHelper
+
     def create
       transaction = CreditCardTransaction.new(credit_card_attributes, payment).charge!
 

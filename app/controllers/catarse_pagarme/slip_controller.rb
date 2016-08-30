@@ -3,6 +3,8 @@ require 'weekdays'
 module CatarsePagarme
   class SlipController < CatarsePagarme::ApplicationController
 
+    include ApplicationHelper
+    
     def create
       transaction = SlipTransaction.new(slip_attributes, payment).charge!
 
