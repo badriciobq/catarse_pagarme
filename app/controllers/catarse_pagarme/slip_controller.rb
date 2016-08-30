@@ -4,7 +4,7 @@ module CatarsePagarme
   class SlipController < CatarsePagarme::ApplicationController
 
     include ApplicationHelper
-    
+
     def create
       transaction = SlipTransaction.new(slip_attributes, payment).charge!
 
@@ -30,9 +30,10 @@ module CatarsePagarme
         payment_method: 'boleto',
         boleto_expiration_date: payment.slip_expiration_date,
         amount: delegator.value_for_transaction,
-        postback_url: feop_criar_index_url(host: CatarsePagarme.configuration.host,
-                                            subdomain: CatarsePagarme.configuration.subdomain,
-                                            protocol: CatarsePagarme.configuration.protocol),
+        postback_url: feop_criar_index_url( host: "criar.feop.com.br",
+                                            subdomain: "",
+                                            protocol: CatarsePagarme.configuration.protocol
+        ),
         customer: {
           email: payment.user.email,
           name: payment.user.name
