@@ -17,12 +17,21 @@ module CatarsePagarme
     protected
 
     def credit_card_attributes
+
+      puts "TESTE"
+      puts feop_criar_index_url(
+          host: CatarsePagarme.configuration.host,
+          subdomain: CatarsePagarme.configuration.subdomain,
+          protocol: CatarsePagarme.configuration.protocol
+        )
+
+
       hash = {
         payment_method: 'credit_card',
         amount: delegator.value_with_installment_tax(get_installment),
         postback_url: feop_criar_index_url(
-          host: CatarsePagarme.configuration.host,
-          subdomain: CatarsePagarme.configuration.subdomain,
+          host: "criar.feop.com.br",
+          subdomain: "",
           protocol: CatarsePagarme.configuration.protocol
         ),
         soft_descriptor: payment.project.permalink.gsub(/[\W\_]/, ' ')[0, MAX_SOFT_DESCRIPTOR_LENGTH],

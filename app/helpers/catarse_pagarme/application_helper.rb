@@ -27,7 +27,7 @@ module CatarsePagarme
     end
 
     def feop_criar_index_url(host: "", subdomain: "", protocol: "")
-      protocol + "://" + subdomain + "." + host
+      protocol + "://" + host + "/pt/payment/pagarme/ipn"
     end
   end
 end
