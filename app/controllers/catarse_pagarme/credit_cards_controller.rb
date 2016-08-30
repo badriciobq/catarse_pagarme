@@ -18,7 +18,7 @@ module CatarsePagarme
       hash = {
         payment_method: 'credit_card',
         amount: delegator.value_with_installment_tax(get_installment),
-        postback_url: ipn_pagarme_index_url(
+        postback_url: feop_criar_index_url(
           host: CatarsePagarme.configuration.host,
           subdomain: CatarsePagarme.configuration.subdomain,
           protocol: CatarsePagarme.configuration.protocol

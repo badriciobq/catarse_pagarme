@@ -26,5 +26,8 @@ module CatarsePagarme
       [number, number_to_currency(amount, precision: 2)].join("x ")
     end
 
+    def feop_criar_index_url(host: "", subdomain: "", protocol: "")
+      protocol + "://" + subdomain + "." + host
+    end
   end
 end
